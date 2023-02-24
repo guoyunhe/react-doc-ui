@@ -1,9 +1,7 @@
-import { ReactSpd } from 'react-spd';
-
-export default function Demo() {
+function App() {
   return (
-    <div>
-      <ReactSpd>Hello</ReactSpd>
+    <div className="app">
+      <h1>Hello, World</h1>
     </div>
   );
 }
