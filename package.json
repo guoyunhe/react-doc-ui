@@ -1,7 +1,7 @@
 {
-  "name": "opd",
+  "name": "react-spd",
   "version": "1.0.0",
-  "description": "One Page Doc (OPD)",
+  "description": "React Single Page Document (SPD)",
   "keywords": [
     "react",
     "document",
