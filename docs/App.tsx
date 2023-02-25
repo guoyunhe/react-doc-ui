@@ -1,4 +1,4 @@
-import Themes from './Themes';
+import { CodeBlock } from '../src/CodeBlock';
 
 export default function App() {
   return (
@@ -7,7 +7,15 @@ export default function App() {
         Please edit <code style={{ color: '#ff8800', fontSize: 14 }}>docs/App.tsx</code> file
       </div>
 
-      <Themes />
+      <CodeBlock
+        files={[
+          {
+            filename: 'index.tsx',
+            language: 'tsx',
+            code: 'yoo',
+          },
+        ]}
+      />
     </div>
   );
 }

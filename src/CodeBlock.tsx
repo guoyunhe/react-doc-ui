@@ -1,37 +1,39 @@
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import { githubLight } from './themes';
+import { ReactNode, useState } from 'react';
+import { Highlighter, Language } from './Highlighter';
 
-export interface CodeBlockProps {
-  children: string;
-  language?: Language;
+export interface CodeFile {
+  filename?: string;
+  language: Language;
+  code: string;
 }
 
-export function CodeBlock({ children, language = 'tsx' }: CodeBlockProps) {
+export interface CodeBlockProps {
+  demo?: ReactNode;
+  files: CodeFile[];
+}
+
+export function CodeBlock({ demo, files }: CodeBlockProps) {
+  const [activeFile, setActiveFile] = useState(0);
   return (
-    <Highlight {...defaultProps} theme={githubLight} code={children.trim()} language={language}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={className}
+    <div style={{}}>
+      <div style={{}}>{demo}</div>
+
+      {files.map((file, index) => (
+        <div
+          key={file.filename || index}
+          onClick={() => {
+            setActiveFile(index);
+          }}
           style={{
-            padding: 16,
-            fontSize: '13px',
-            fontFamily:
-              'ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace',
-            lineHeight: 1.45,
-            ...style,
+            background: activeFile === index ? '#fff' : '#000',
           }}
         >
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              <span>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </span>
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
+          {file.filename || file.language.toUpperCase()}
+        </div>
+      ))}
+      {files.map((file, index) => (
+        <Highlighter key={file.filename || index} {...file} />
+      ))}
+    </div>
   );
 }
