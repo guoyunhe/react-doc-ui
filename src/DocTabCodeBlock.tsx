@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { Highlighter, Language } from './Highlighter';
+import { Highlighter, Language } from './DocCodeBlock';
 
 export interface CodeFile {
   filename?: string;
@@ -7,12 +7,12 @@ export interface CodeFile {
   code: string;
 }
 
-export interface CodeBlockProps {
+export interface DocTabCodeBlockProps {
   demo?: ReactNode;
   files: CodeFile[];
 }
 
-export function CodeBlock({ demo, files }: CodeBlockProps) {
+export function DocTabCodeBlock({ demo, files }: DocTabCodeBlockProps) {
   const [activeFile, setActiveFile] = useState(0);
   return (
     <div style={{}}>

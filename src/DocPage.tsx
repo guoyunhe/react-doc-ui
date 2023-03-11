@@ -1,14 +1,14 @@
 import { ReactNode } from 'react';
-import { SPDProvider } from './SPDContext';
+import { DocProvider } from './DocContext';
 
 export interface SPDPageProps {
   children?: ReactNode;
 }
 
-export function SPDPage({ children }: SPDPageProps) {
+export function DocPage({ children }: SPDPageProps) {
   return (
-    <SPDProvider>
+    <DocProvider>
       <div>{children}</div>
-    </SPDProvider>
+    </DocProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { CodeBlock } from 'react-spd';
+import { DocCodeBlock } from 'react-spd';
 
 const json = `
 {
@@ -47,9 +47,9 @@ export default function Themes() {
   return (
     <div>
       <h2>HTML</h2>
-      <CodeBlock language="json">{json}</CodeBlock>
-      <CodeBlock language="markup">{html}</CodeBlock>
-      <CodeBlock language="css">{css}</CodeBlock>
+      <DocCodeBlock language="json">{json}</DocCodeBlock>
+      <DocCodeBlock language="markup">{html}</DocCodeBlock>
+      <DocCodeBlock language="css">{css}</DocCodeBlock>
     </div>
   );
 }

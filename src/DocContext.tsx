@@ -5,21 +5,21 @@ import { useMediaQuery } from 'react-responsive';
 
 export type Theme = 'auto' | 'light' | 'dark';
 
-interface SPDContextValue {
+interface DocContextValue {
   theme: Theme;
   setTheme: (theme: Theme) => void;
 }
 
-const SPDContext = createContext<SPDContextValue>({
+const SPDContext = createContext<DocContextValue>({
   theme: 'auto',
   setTheme: () => null,
 });
 
-export interface SPDProviderProps {
+export interface DocProviderProps {
   children?: ReactNode;
 }
 
-export function SPDProvider({ children }: SPDProviderProps) {
+export function DocProvider({ children }: DocProviderProps) {
   const [theme, setTheme] = useState<Theme>('auto');
   const preferDark = useMediaQuery({ query: '(prefers-color-scheme: dark)' });
   const systemTheme = preferDark ? 'dark' : 'light';
@@ -33,6 +33,6 @@ export function SPDProvider({ children }: SPDProviderProps) {
   );
 }
 
-export function useSPD() {
+export function useDoc() {
   return useContext(SPDContext);
 }
