@@ -1,5 +1,4 @@
-import { DocContainer, DocDemoBlock, DocProvider, DocTabCodeBlock } from 'react-doc-ui';
-import { DocHeader } from '../src/DocHeader';
+import { DocContainer, DocDemoBlock, DocHeader, DocProvider, DocTabCodeBlock } from 'react-doc-ui';
 
 export default function App() {
   return (
