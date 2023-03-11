@@ -5,7 +5,7 @@ export default function App() {
   return (
     <DocProvider>
       <DocContainer>
-        <DocHeader />
+        <DocHeader title={PACKAGE_NAME + '@' + PACKAGE_VERSION} />
 
         <DocDemoBlock>Foobar</DocDemoBlock>
 
