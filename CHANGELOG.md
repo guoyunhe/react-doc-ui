@@ -1,9 +1,14 @@
 # Changelog
 
-## 1.0.0 - 2023-02-24
+## 1.0.0 - 2023-03-11
 
-- Added something
-- Changed something
-- Fixed something
-- Removed something
-- Deprecated something
+- Added components:
+  - `<DocCodeBlock/>`
+  - `<DocContainer/>`
+  - `<DocDemoBlock/>`
+  - `<DocHeader/>`
+  - `<DocHeading/>`
+  - `<DocProvider/>`
+  - `<DocTabCodeBlock/>`
+- Added hooks:
+  - `useDoc()`
