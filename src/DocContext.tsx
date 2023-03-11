@@ -3,7 +3,7 @@ import { createContext } from 'react';
 export type Theme = 'auto' | 'light' | 'dark';
 export type ActualTheme = 'light' | 'dark';
 
-interface DocContextValue {
+export interface DocContextValue {
   theme: Theme;
   systemTheme: ActualTheme;
   actualTheme: ActualTheme;
