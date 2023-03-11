@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { Theme, useDoc } from './DocContext';
+import { Theme } from './DocContext';
+import { useDoc } from './useDoc';
 
 export interface DocHeaderProps {
   title?: ReactNode;
@@ -9,7 +10,7 @@ export function DocHeader({ title }: DocHeaderProps) {
   const { theme, systemTheme, setTheme } = useDoc();
   return (
     <div style={{ marginBottom: 16, display: 'flex', alignItems: 'center' }}>
-      <h1 style={{ flex: '1 1 auto', margin: 0, fontSize: 32, fontWeight: 400 }}>{title}</h1>
+      <h1 style={{ flex: '1 1 auto', margin: 0 }}>{title}</h1>
       <div style={{ textAlign: 'right' }}>
         Theme:&nbsp;
         <select

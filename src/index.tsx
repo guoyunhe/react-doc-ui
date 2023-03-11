@@ -3,4 +3,7 @@ export * from './DocContainer';
 export * from './DocContext';
 export * from './DocDemoBlock';
 export * from './DocHeader';
+export * from './DocHeading';
+export * from './DocProvider';
 export * from './DocTabCodeBlock';
+export * from './useDoc';

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useDoc } from './DocContext';
+import { useDoc } from './useDoc';
 
 export interface DocDemoBlockProps {
   children?: ReactNode;

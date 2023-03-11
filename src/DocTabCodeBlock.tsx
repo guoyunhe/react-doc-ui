@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DocCodeBlock, Language } from './DocCodeBlock';
-import { useDoc } from './DocContext';
+import { useDoc } from './useDoc';
 
 export interface CodeFile {
   filename?: string;
