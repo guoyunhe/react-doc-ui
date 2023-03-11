@@ -1,17 +1,23 @@
-import prismDarkStyle from '@guoyunhe/prism-theme-github/github-dark.css?raw';
-import prismLightStyle from '@guoyunhe/prism-theme-github/github-light.css?raw';
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import prismDarkStyle from '@guoyunhe/prism-theme-github/github-dark.css?raw';
+import prismLightStyle from '@guoyunhe/prism-theme-github/github-light.css?raw';
+import darkStyle from './theme-dark.css?raw';
+import lightStyle from './theme-light.css?raw';
+
 export type Theme = 'auto' | 'light' | 'dark';
+export type ActualTheme = 'light' | 'dark';
 
 interface DocContextValue {
   theme: Theme;
+  actualTheme: ActualTheme;
   setTheme: (theme: Theme) => void;
 }
 
 const SPDContext = createContext<DocContextValue>({
   theme: 'auto',
+  actualTheme: 'light',
   setTheme: () => null,
 });
 
@@ -25,8 +31,8 @@ export function DocProvider({ children }: DocProviderProps) {
   const systemTheme = preferDark ? 'dark' : 'light';
   const actualTheme = theme === 'auto' ? systemTheme : theme;
   return (
-    <SPDContext.Provider value={{ theme, setTheme }}>
-      <style>{actualTheme === 'light' ? prismLightStyle : prismDarkStyle}</style>
+    <SPDContext.Provider value={{ theme, actualTheme, setTheme }}>
+      <style>{actualTheme === 'light' ? lightStyle : darkStyle}</style>
       <style>{actualTheme === 'light' ? prismLightStyle : prismDarkStyle}</style>
       {children}
     </SPDContext.Provider>
