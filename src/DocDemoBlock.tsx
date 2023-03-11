@@ -15,6 +15,7 @@ export function DocDemoBlock({ children }: DocDemoBlockProps) {
         borderColor: actualTheme === 'dark' ? '#30363d' : '#d8dee4',
         borderRadius: 6,
         padding: 16,
+        marginBottom: 16,
       }}
     >
       {children}

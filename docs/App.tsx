@@ -17,6 +17,11 @@ export default function App() {
               language: 'tsx',
               code: 'yoo',
             },
+            {
+              filename: 'index.css',
+              language: 'css',
+              code: 'yoo',
+            },
           ]}
         />
       </DocContainer>

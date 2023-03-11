@@ -1,4 +1,5 @@
 import Highlight, { defaultProps, Language as BaseLanguage } from 'prism-react-renderer';
+import { CSSProperties } from 'react';
 
 const languageAliasDict = {
   cjs: 'javascript',
@@ -23,12 +24,13 @@ function mapLang(language: Language): BaseLanguage {
   return (languageAliasDict[language as LanguageAlias] || language) as BaseLanguage;
 }
 
-export interface HighlighterProps {
+export interface DocCodeBlockProps {
   code: string;
   language: Language;
+  style?: CSSProperties;
 }
 
-export function Highlighter({ code, language }: HighlighterProps) {
+export function DocCodeBlock({ code, language, style }: DocCodeBlockProps) {
   return (
     <Highlight
       {...defaultProps}
@@ -36,8 +38,8 @@ export function Highlighter({ code, language }: HighlighterProps) {
       code={code.trim()}
       language={mapLang(language)}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
+      {({ className, style: _style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ..._style, ...style }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               <span>
