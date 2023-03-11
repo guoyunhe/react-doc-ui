@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { DocCodeBlock, Language } from './DocCodeBlock';
+import { useDoc } from './DocContext';
 
 export interface CodeFile {
   filename?: string;
@@ -12,7 +13,10 @@ export interface DocTabCodeBlockProps {
 }
 
 export function DocTabCodeBlock({ files }: DocTabCodeBlockProps) {
+  const { actualTheme } = useDoc();
   const [activeFile, setActiveFile] = useState(0);
+
+  const activeTabBg = actualTheme === 'dark' ? '#161b22' : '#f6f8fa';
   return (
     <div style={{ marginBottom: 16 }}>
       <div style={{ paddingLeft: 16, paddingRight: 16, display: 'flex' }}>
@@ -23,7 +27,7 @@ export function DocTabCodeBlock({ files }: DocTabCodeBlockProps) {
               setActiveFile(index);
             }}
             style={{
-              background: activeFile === index ? '#161b22' : 'transparent',
+              background: activeFile === index ? activeTabBg : 'transparent',
               cursor: 'pointer',
               padding: '4px 12px',
               borderRadius: '6px 6px 0 0',
