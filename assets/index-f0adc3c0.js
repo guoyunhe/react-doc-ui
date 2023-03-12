@@ -239,7 +239,7 @@ pre[class*='language-'] {
   color: #953800;
 }
 `;function Ep(e,t){t===void 0&&(t="");var n=ze.useState(function(){return window.localStorage.getItem(e)||t}),r=n[0],l=n[1],o=function(a){l(a),window.localStorage.setItem(e,a)};ze.useEffect(function(){var u=window.localStorage.getItem(e);r!==u&&l(u||t)});var i=ze.useCallback(function(u){u.key===e&&u.newValue!==r&&l(u.newValue||t)},[r]);return ze.useEffect(function(){return window.addEventListener("storage",i),function(){return window.removeEventListener("storage",i)}},[i]),[r,o]}const _p=`html {
-  font-size: 14px;
+  font-size: 100%;
 }
 
 body {
@@ -267,16 +267,12 @@ ul {
   padding-left: 1em;
 }
 `,xp=`body {
-  margin: 0;
   background: #0d1117;
   color: #c9d1d9;
-  font-size: 14px;
 }
 `,Tp=`body {
-  margin: 0;
   background: #ffffff;
-  color: #000000;
-  font-size: 14px;
+  color: #24292f;
 }
 `;function Cp({children:e}){const[t,n]=Ep("react-doc-ui-theme","auto"),l=ci.useMediaQuery({query:"(prefers-color-scheme: dark)"})?"dark":"light",o=t==="auto"?l:t;return b.jsxs(Ac.Provider,{value:{theme:t,systemTheme:l,actualTheme:o,setTheme:n},children:[b.jsx("style",{children:_p}),b.jsx("style",{children:o==="light"?Tp:xp}),b.jsx("style",{children:o==="light"?kp:Sp}),e]})}function Rp({files:e}){const{actualTheme:t}=oa(),[n,r]=ze.useState(0),l=t==="dark"?"#161b22":"#f6f8fa";return b.jsxs("div",{style:{marginBottom:16},children:[b.jsx("div",{style:{paddingLeft:16,paddingRight:16,display:"flex"},children:e.map((o,i)=>b.jsx("div",{onClick:()=>{r(i)},style:{background:n===i?l:"transparent",cursor:"pointer",padding:"4px 12px",borderRadius:"6px 6px 0 0"},children:o.filename||o.language.toUpperCase()},o.filename||i))}),e.map((o,i)=>b.jsx(pt,{...o,style:{marginTop:0,display:n===i?"block":"none"}},o.filename||i))]})}const Op=`
 import {
@@ -331,4 +327,4 @@ function App() {
     },
   ]}
 />
-`;function Ip(){return b.jsx(Cp,{children:b.jsxs(mp,{children:[b.jsx(yp,{title:"react-doc-ui@0.0.2"}),b.jsx("p",{children:"React UI components for making documents."}),b.jsx(at,{children:"Features"}),b.jsxs("ul",{children:[b.jsx("li",{children:"Code syntax highlight, supporting multiple file tabs"}),b.jsx("li",{children:"Dark/light mode switcher"})]}),b.jsx(at,{children:"Install"}),b.jsx(pt,{language:"bash",code:"npm i react-doc-ui"}),b.jsx(at,{children:"Usage"}),b.jsx(pt,{language:"jsx",code:Op}),b.jsx(at,{children:"DocProvider"}),b.jsx("p",{children:"Wrap the whole React app"}),b.jsx(pt,{language:"jsx",code:"<DocProvider>...</DocProvider>"}),b.jsx(at,{children:"DocContainer"}),b.jsx("p",{children:"Centered container. Maximum width 800 by default."}),b.jsx(pt,{language:"jsx",code:"<DocContainer maxWidth={960}>...</DocContainer>"}),b.jsx(at,{children:"DocHeader"}),b.jsx("p",{children:"Page title, theme switcher, etc."}),b.jsx(pt,{language:"jsx",code:'<DocHeader title="My Title" />'}),b.jsx(at,{children:"DocHeading"}),b.jsx("p",{children:"Section heading"}),b.jsx(pt,{language:"jsx",code:"<DocHeading level={2}>How to use</DocHeading>"}),b.jsx(at,{children:"DocDemoBlock"}),b.jsx("p",{children:"Area for demo UI"}),b.jsx(vp,{children:"Hello World"}),b.jsx(pt,{language:"jsx",code:"<DocDemoBlock>Hello World</DocDemoBlock>"}),b.jsx(at,{children:"DocCodeBlock"}),b.jsx("p",{children:"Area for source code with syntax highlighting"}),b.jsx(pt,{language:"jsx",code:'<DocCodeBlock language="js" code="const today = new Date();" />'}),b.jsx(at,{children:"DocTabCodeBlock"}),b.jsx("p",{children:"Tabbed UI for multiple source code files"}),b.jsx(Rp,{files:[{filename:"index.js",language:"jsx",code:Ap},{filename:"index.css",language:"jsx",code:"body { background: #fff; }"},{filename:"index.html",language:"jsx",code:"<html>...</html>"}]})]})})}const wu=document.getElementById("root");wu&&Oc(wu).render(b.jsx(Ip,{}));
+`;function Ip(){return b.jsx(Cp,{children:b.jsxs(mp,{children:[b.jsx(yp,{title:"react-doc-ui@1.0.1"}),b.jsx("p",{children:"React UI components for making documents."}),b.jsx(at,{children:"Features"}),b.jsxs("ul",{children:[b.jsx("li",{children:"Code syntax highlight, supporting multiple file tabs"}),b.jsx("li",{children:"Dark/light mode switcher"})]}),b.jsx(at,{children:"Install"}),b.jsx(pt,{language:"bash",code:"npm i react-doc-ui"}),b.jsx(at,{children:"Usage"}),b.jsx(pt,{language:"jsx",code:Op}),b.jsx(at,{children:"DocProvider"}),b.jsx("p",{children:"Wrap the whole React app"}),b.jsx(pt,{language:"jsx",code:"<DocProvider>...</DocProvider>"}),b.jsx(at,{children:"DocContainer"}),b.jsx("p",{children:"Centered container. Maximum width 800 by default."}),b.jsx(pt,{language:"jsx",code:"<DocContainer maxWidth={960}>...</DocContainer>"}),b.jsx(at,{children:"DocHeader"}),b.jsx("p",{children:"Page title, theme switcher, etc."}),b.jsx(pt,{language:"jsx",code:'<DocHeader title="My Title" />'}),b.jsx(at,{children:"DocHeading"}),b.jsx("p",{children:"Section heading"}),b.jsx(pt,{language:"jsx",code:"<DocHeading level={2}>How to use</DocHeading>"}),b.jsx(at,{children:"DocDemoBlock"}),b.jsx("p",{children:"Area for demo UI"}),b.jsx(vp,{children:"Hello World"}),b.jsx(pt,{language:"jsx",code:"<DocDemoBlock>Hello World</DocDemoBlock>"}),b.jsx(at,{children:"DocCodeBlock"}),b.jsx("p",{children:"Area for source code with syntax highlighting"}),b.jsx(pt,{language:"jsx",code:'<DocCodeBlock language="js" code="const today = new Date();" />'}),b.jsx(at,{children:"DocTabCodeBlock"}),b.jsx("p",{children:"Tabbed UI for multiple source code files"}),b.jsx(Rp,{files:[{filename:"index.js",language:"jsx",code:Ap},{filename:"index.css",language:"jsx",code:"body { background: #fff; }"},{filename:"index.html",language:"jsx",code:"<html>...</html>"}]})]})})}const wu=document.getElementById("root");wu&&Oc(wu).render(b.jsx(Ip,{}));
