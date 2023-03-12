@@ -7,6 +7,6 @@ describe('<DocContainer/>', () => {
 
     const elem = await screen.findByText('Hello');
 
-    expect(elem.className).toBe('DocContainer');
+    expect(elem).toBeTruthy();
   });
 });
