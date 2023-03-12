@@ -10,13 +10,13 @@
     "demo",
     "playground"
   ],
-  "homepage": "https://github.com/guoyunhe/react-spd#readme",
+  "homepage": "https://github.com/guoyunhe/react-doc-ui#readme",
   "bugs": {
-    "url": "https://github.com/guoyunhe/react-spd/issues"
+    "url": "https://github.com/guoyunhe/react-doc-ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guoyunhe/react-spd.git"
+    "url": "git+https://github.com/guoyunhe/react-doc-ui.git"
   },
   "funding": "https://github.com/sponsors/guoyunhe",
   "license": "GPL-3.0",
