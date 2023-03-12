@@ -1,14 +1,15 @@
 {
   "name": "react-doc-ui",
-  "version": "1.0.0",
-  "description": "React Single Page Document (SPD)",
+  "version": "1.0.1",
+  "description": "React Document UI",
   "keywords": [
     "react",
     "document",
     "component",
     "library",
     "demo",
-    "playground"
+    "playground",
+    "syntax-highlight"
   ],
   "homepage": "https://guoyunhe.github.io/react-doc-ui/",
   "bugs": {
