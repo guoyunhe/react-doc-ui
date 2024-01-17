@@ -35,12 +35,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "react-lib-scripts build",
-    "format": "react-lib-scripts format",
-    "lint": "react-lib-scripts lint",
+    "build": "rive build",
+    "lint": "rive lint",
     "start": "rive start",
     "test": "rive test",
-    "watch": "react-lib-scripts watch",
     "deploy": "gh-pages -d build"
   },
   "prettier": {
