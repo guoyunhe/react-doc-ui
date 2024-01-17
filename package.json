@@ -38,8 +38,8 @@
     "build": "react-lib-scripts build",
     "format": "react-lib-scripts format",
     "lint": "react-lib-scripts lint",
-    "start": "react-lib-scripts start",
-    "test": "react-lib-scripts test",
+    "start": "rive start",
+    "test": "rive test",
     "watch": "react-lib-scripts watch",
     "deploy": "gh-pages -d build"
   },
@@ -55,23 +55,26 @@
   },
   "dependencies": {
     "@guoyunhe/prism-theme-github": "^1.0.0",
+    "classnames": "^2.5.1",
     "prism-react-renderer": "^1.3.5",
     "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.21.2",
     "react-use-localstorage": "^3.5.3"
   },
   "devDependencies": {
-    "@guoyunhe/react-lib-scripts": "^1.3.0",
-    "@testing-library/dom": "^9.0.1",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@guoyunhe/react-lib-scripts": "^1.5.0",
+    "@mdx-js/react": "^3.0.0",
+    "@testing-library/dom": "^9.3.4",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@tsconfig/vite-react": "^1.0.1",
-    "@types/jest": "^29.4.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/jest": "^29.5.11",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"

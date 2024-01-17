@@ -15,3 +15,5 @@ yarn.lock
 
 # Output of 'npm pack'
 *.tgz
+
+.rive
