@@ -20,7 +20,7 @@
     "url": "git+https://github.com/guoyunhe/react-doc-ui.git"
   },
   "funding": "https://github.com/sponsors/guoyunhe",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "author": {
     "name": "Guo Yunhe",
     "email": "i@guoyunhe.me"
@@ -83,7 +83,7 @@
   },
   "rive": {
     "doc": {
-      "basename": "react-doc-ui"
+      "basename": "/react-doc-ui/"
     }
   }
 }
