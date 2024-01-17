@@ -1,17 +1,10 @@
+import { MDXProvider } from '@mdx-js/react';
 import cn from 'classnames';
 import { CSSProperties, ComponentType } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import './index.css';
+import { components } from './private/components';
 import { getRoutePath } from './private/getRoutePath';
-
-export * from './DocCodeBlock';
-export * from './DocContainer';
-export * from './DocContext';
-export * from './DocDemoBlock';
-export * from './DocHeader';
-export * from './DocHeading';
-export * from './DocProvider';
-export * from './DocTabCodeBlock';
-export * from './useDoc';
 
 export interface MDXDoc {
   default: ComponentType;
@@ -63,16 +56,18 @@ export default function DocUI({ docs = [], className, style }: DocUIProps) {
           ))}
         </aside>
         <main>
-          <Routes>
-            {docs.map((doc) => (
-              <Route
-                index={doc.filepath === 'README.md'}
-                key={doc.filepath}
-                path={getRoutePath(doc.filepath)}
-                Component={doc.default}
-              />
-            ))}
-          </Routes>
+          <MDXProvider components={components}>
+            <Routes>
+              {docs.map((doc) => (
+                <Route
+                  index={doc.filepath === 'README.md'}
+                  key={doc.filepath}
+                  path={getRoutePath(doc.filepath)}
+                  Component={doc.default}
+                />
+              ))}
+            </Routes>
+          </MDXProvider>
         </main>
         <aside>{}</aside>
       </div>
