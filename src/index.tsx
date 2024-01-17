@@ -1,26 +1,12 @@
 import { MDXProvider } from '@mdx-js/react';
 import cn from 'classnames';
-import { CSSProperties, ComponentType } from 'react';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { CSSProperties } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
+import { SiteNav } from './private/SiteNav';
 import { components } from './private/components';
 import { getRoutePath } from './private/getRoutePath';
-
-export interface MDXDoc {
-  default: ComponentType;
-  /**
-   * @see https://github.com/remcohaszing/recma-export-filepath
-   */
-  filepath: string;
-  /**
-   * @see https://github.com/remcohaszing/remark-mdx-frontmatter
-   */
-  frontmatter?: Record<string, any>;
-  /**
-   * @see https://github.com/remcohaszing/rehype-mdx-title
-   */
-  title?: string;
-}
+import { MDXDoc } from './types';
 
 export interface DocUIProps {
   /**
@@ -35,6 +21,10 @@ export interface DocUIProps {
    */
   docs?: MDXDoc[];
   /**
+   * React Router basename
+   */
+  basename?: string;
+  /**
    * Extra className.
    */
   className?: string;
@@ -44,32 +34,27 @@ export interface DocUIProps {
   style?: CSSProperties;
 }
 
-export default function DocUI({ docs = [], className, style }: DocUIProps) {
+export default function DocUI({ docs = [], basename, className, style }: DocUIProps) {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <div className={cn('doc-ui', className)} style={style}>
-        <aside>
-          {docs.map((doc) => (
-            <NavLink key={doc.filepath} to={getRoutePath(doc.filepath)}>
-              {doc.title}
-            </NavLink>
-          ))}
-        </aside>
-        <main>
-          <MDXProvider components={components}>
-            <Routes>
-              {docs.map((doc) => (
-                <Route
-                  index={doc.filepath === 'README.md'}
-                  key={doc.filepath}
-                  path={getRoutePath(doc.filepath)}
-                  Component={doc.default}
-                />
-              ))}
-            </Routes>
-          </MDXProvider>
+        <SiteNav docs={docs} />
+        <main className="doc-ui-main">
+          <article className="doc-ui-content">
+            <MDXProvider components={components}>
+              <Routes>
+                {docs.map((doc) => (
+                  <Route
+                    index={doc.filepath === 'README.md'}
+                    key={doc.filepath}
+                    path={getRoutePath(doc.filepath)}
+                    Component={doc.default}
+                  />
+                ))}
+              </Routes>
+            </MDXProvider>
+          </article>
         </main>
-        <aside>{}</aside>
       </div>
     </BrowserRouter>
   );

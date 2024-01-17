@@ -1,0 +1,23 @@
+.doc-ui-site-nav {
+  flex: 0 0 250px;
+  background-color: var(--doc-ui-color-content-bg);
+}
+
+.doc-ui-site-nav-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.doc-ui-site-nav-item {
+  display: block;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  color: inherit;
+}
+
+.doc-ui-site-nav-item.active {
+  background-color: var(--doc-ui-color-toolbar-bg);
+}
