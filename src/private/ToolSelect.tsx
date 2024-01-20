@@ -11,15 +11,29 @@ export interface ToolSelectProps {
   style?: CSSProperties;
 }
 
-export function ToolSelect({ value, onChange, options, className, style }: ToolSelectProps) {
+export function ToolSelect({
+  value,
+  onChange,
+  options,
+  className,
+  style,
+}: ToolSelectProps) {
   const [open, setOpen] = useState(false);
   const selected = options.find((item) => item.value === value);
   return (
     <div className={cn('doc-ui-select', className)} style={style}>
-      <ToolButton icon={selected?.icon} onClick={() => setOpen((prev) => !prev)}>
+      <ToolButton
+        icon={selected?.icon}
+        onClick={() => setOpen((prev) => !prev)}
+      >
         {selected?.label}
       </ToolButton>
-      <div className={cn('doc-ui-select-dropdown', open && 'doc-ui-select-dropdown-open')}>
+      <div
+        className={cn(
+          'doc-ui-select-dropdown',
+          open && 'doc-ui-select-dropdown-open',
+        )}
+      >
         {options.map((item) => (
           <ToolButton
             key={item.value}

@@ -1,4 +1,8 @@
-import { RiMacbookLine, RiSmartphoneLine, RiTabletLine } from '@remixicon/react';
+import {
+  RiMacbookLine,
+  RiSmartphoneLine,
+  RiTabletLine,
+} from '@remixicon/react';
 import cn from 'classnames';
 import { CSSProperties, useMemo, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
@@ -49,16 +53,26 @@ export function DemoBlock({
 
   return (
     <div
-      className={cn('doc-ui-demo-block', 'doc-ui-demo-block-' + selectedDevice, className)}
+      className={cn(
+        'doc-ui-demo-block',
+        'doc-ui-demo-block-' + selectedDevice,
+        className,
+      )}
       style={style}
     >
       <Toolbar>
         <FileName language={language} filename={filename} />
         <Spacer />
         {device === 'responsive' ? (
-          <ToolSelect value={selectedDevice} onChange={setSelectedDevice} options={deviceList} />
+          <ToolSelect
+            value={selectedDevice}
+            onChange={setSelectedDevice}
+            options={deviceList}
+          />
         ) : (
-          <ToolButton icon={selectedDeviceObj?.icon}>{selectedDeviceObj?.label}</ToolButton>
+          <ToolButton icon={selectedDeviceObj?.icon}>
+            {selectedDeviceObj?.label}
+          </ToolButton>
         )}
         <CopyButton code={code} />
       </Toolbar>

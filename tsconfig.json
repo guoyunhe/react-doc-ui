@@ -1,13 +1,17 @@
 {
-  "extends": "@tsconfig/vite-react/tsconfig.json",
   "compilerOptions": {
-    "target": "es2015",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["rive/globals"],
     "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["esnext", "dom"],
-    "paths": {
-      "react-doc-ui": ["./src"],
-    },
-    "types": ["jest", "@guoyunhe/react-lib-scripts/assets", "@guoyunhe/react-lib-scripts/global"],
   },
+  "include": ["src"],
 }

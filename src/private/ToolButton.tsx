@@ -12,10 +12,21 @@ export interface ToolButtonProps {
   onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
-export function ToolButton({ children, icon, color, className, style, onClick }: ToolButtonProps) {
+export function ToolButton({
+  children,
+  icon,
+  color,
+  className,
+  style,
+  onClick,
+}: ToolButtonProps) {
   return (
     <a
-      className={classNames('doc-ui-tool-button', 'doc-ui-tool-button-' + color, className)}
+      className={classNames(
+        'doc-ui-tool-button',
+        'doc-ui-tool-button-' + color,
+        className,
+      )}
       onClick={onClick}
       style={style}
     >

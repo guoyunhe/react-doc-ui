@@ -10,7 +10,12 @@ export function FileName({ language, filename }: FileNameProps) {
   return (
     <span className="doc-ui-file-name">
       {language && (
-        <span className={cn('doc-ui-file-name-icon', 'doc-ui-file-name-icon-' + language)}>
+        <span
+          className={cn(
+            'doc-ui-file-name-icon',
+            'doc-ui-file-name-icon-' + language,
+          )}
+        >
           {language === 'bash' ? '>_' : language}
         </span>
       )}

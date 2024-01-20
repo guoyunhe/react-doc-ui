@@ -34,7 +34,12 @@ export interface DocUIProps {
   style?: CSSProperties;
 }
 
-export default function DocUI({ docs = [], basename, className, style }: DocUIProps) {
+export default function DocUI({
+  docs = [],
+  basename,
+  className,
+  style,
+}: DocUIProps) {
   return (
     <BrowserRouter basename={basename}>
       <div className={cn('doc-ui', className)} style={style}>
