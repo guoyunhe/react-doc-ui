@@ -13,6 +13,7 @@ import { Spacer } from './Spacer';
 import { Toolbar } from './Toobar';
 import { ToolButton } from './ToolButton';
 import { ToolSelect } from './ToolSelect';
+import { transformCode } from './transformCode';
 
 export interface DemoBlockProps {
   device?: 'laptop' | 'tablet' | 'mobile' | 'responsive';
@@ -22,6 +23,7 @@ export interface DemoBlockProps {
   disablePadding?: boolean;
   className?: string;
   style?: CSSProperties;
+  imports?: Record<string, any>;
 }
 
 export function DemoBlock({
@@ -32,6 +34,7 @@ export function DemoBlock({
   disablePadding,
   className,
   style,
+  imports,
 }: DemoBlockProps) {
   const deviceList = useMemo(
     () => [
@@ -81,6 +84,8 @@ export function DemoBlock({
         // disable the built-in theme of react-prism-renderer
         theme={{ plain: {}, styles: [] }}
         enableTypeScript={language === 'tsx'}
+        transformCode={transformCode}
+        scope={imports}
       >
         <div className="doc-ui-demo-block-main">
           <LivePreview

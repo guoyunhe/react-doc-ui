@@ -8,8 +8,12 @@ npm i react-doc-ui
 
 ## Usage
 
-```jsx
+```jsx live
+import cn from 'classnames';
 
+function App() {
+  return <div className={cn('foo', 'bar')}>foobar</div>;
+}
 ```
 
 [full document with examples](https://guoyunhe.github.io/react-doc-ui/)
