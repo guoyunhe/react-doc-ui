@@ -38,6 +38,7 @@
 
 .doc-ui-demo-block-editor {
   overflow: auto;
+  font-family: monospace !important;
 }
 
 .doc-ui-demo-block-editor .prism-code {

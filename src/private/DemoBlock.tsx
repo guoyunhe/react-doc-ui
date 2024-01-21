@@ -86,6 +86,7 @@ export function DemoBlock({
         enableTypeScript={language === 'tsx'}
         transformCode={transformCode}
         scope={imports}
+        noInline={code?.includes('render(')}
       >
         <div className="doc-ui-demo-block-main">
           <LivePreview
