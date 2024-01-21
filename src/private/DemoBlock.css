@@ -37,14 +37,6 @@
 }
 
 .doc-ui-demo-block-editor {
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    SF Mono,
-    Menlo,
-    Consolas,
-    Liberation Mono,
-    monospace !important;
   overflow: auto;
 }
 
