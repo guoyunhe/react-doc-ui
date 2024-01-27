@@ -73,9 +73,9 @@
     "@types/react-dom": "^18.2.18",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
-    "react-doc-ui": "^2.0.2",
+    "react-doc-ui": "^2.0.3",
     "react-dom": "^18.2.0",
-    "rive": "^2.0.10",
+    "rive": "^2.0.11",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
