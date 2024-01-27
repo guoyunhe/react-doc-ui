@@ -1,4 +1,4 @@
-# react-doc-ui
+# React Doc UI
 
 ## Install
 

@@ -73,9 +73,9 @@
     "@types/react-dom": "^18.2.18",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
-    "react-doc-ui": "^2.0.3",
+    "react-doc-ui": "^2.1.0",
     "react-dom": "^18.2.0",
-    "rive": "^2.0.11",
+    "rive": "^2.0.12",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -83,6 +83,7 @@
   },
   "rive": {
     "doc": {
+      "title": "React Doc UI",
       "basename": "/react-doc-ui/"
     },
     "template": "react"
