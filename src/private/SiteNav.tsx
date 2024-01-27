@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { DocLanguage, MDXDoc } from '../types';
 import './SiteNav.css';
 import { getLang } from './getLang';
 import { getRoutePath } from './getRoutePath';
+import { setLang } from './setLang';
 
 export interface SiteNavProps {
   docs: MDXDoc[];
@@ -12,8 +14,16 @@ export interface SiteNavProps {
 }
 
 export function SiteNav({ docs, languages }: SiteNavProps) {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { i18n } = useTranslation();
-  console.log(i18n.language);
+
+  useEffect(() => {
+    const newPath = setLang(location.pathname, i18n.language);
+    if (newPath !== location.pathname) {
+      navigate(newPath);
+    }
+  }, [i18n.language, location.pathname, navigate]);
   return (
     <aside className="doc-ui-site-nav">
       <nav className="doc-ui-site-nav-inner">
