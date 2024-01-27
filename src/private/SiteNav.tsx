@@ -24,6 +24,7 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
       navigate(newPath);
     }
   }, [i18n.language, location.pathname, navigate]);
+
   return (
     <aside className="doc-ui-site-nav">
       <nav className="doc-ui-site-nav-inner">
