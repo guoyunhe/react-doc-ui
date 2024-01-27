@@ -1,5 +1,5 @@
-import { RiFileCopy2Line } from '@remixicon/react';
 import { useEffect, useState } from 'react';
+import { BiCopy } from 'react-bootstrap-icons-pro';
 import { SuccessButton } from './SuccessButton';
 import { ToolButton } from './ToolButton';
 
@@ -38,7 +38,7 @@ export function CopyButton({ code, locale }: CopyButtonProps) {
           .catch();
       }}
     >
-      <RiFileCopy2Line />
+      <BiCopy />
       {locale?.['copy'] || 'Copy'}
     </ToolButton>
   );

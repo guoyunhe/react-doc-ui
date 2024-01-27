@@ -1,4 +1,4 @@
-import { RiCheckboxCircleLine } from '@remixicon/react';
+import { BiCheckCircle } from 'react-bootstrap-icons-pro';
 import { ToolButton } from './ToolButton';
 
 export interface SuccessButtonProps {
@@ -7,7 +7,7 @@ export interface SuccessButtonProps {
 
 export function SuccessButton({ locale }: SuccessButtonProps) {
   return (
-    <ToolButton color="success" icon={<RiCheckboxCircleLine />}>
+    <ToolButton color="success" icon={<BiCheckCircle />}>
       {locale?.['success'] || 'Success'}
     </ToolButton>
   );

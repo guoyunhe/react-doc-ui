@@ -1,10 +1,6 @@
-import {
-  RiMacbookLine,
-  RiSmartphoneLine,
-  RiTabletLine,
-} from '@remixicon/react';
 import cn from 'classnames';
 import { CSSProperties, useMemo, useState } from 'react';
+import { BiLaptop, BiPhone, BiTablet } from 'react-bootstrap-icons-pro';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import { CopyButton } from './CopyButton';
 import './DemoBlock.css';
@@ -38,9 +34,9 @@ export function DemoBlock({
 }: DemoBlockProps) {
   const deviceList = useMemo(
     () => [
-      { value: 'mobile', label: 'Mobile', icon: <RiSmartphoneLine /> },
-      { value: 'tablet', label: 'Tablet', icon: <RiTabletLine /> },
-      { value: 'laptop', label: 'Laptop', icon: <RiMacbookLine /> },
+      { value: 'mobile', label: 'Mobile', icon: <BiPhone /> },
+      { value: 'tablet', label: 'Tablet', icon: <BiTablet /> },
+      { value: 'laptop', label: 'Laptop', icon: <BiLaptop /> },
     ],
     [],
   );

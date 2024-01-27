@@ -1,11 +1,11 @@
-import {
-  RiCheckboxCircleLine,
-  RiCloseCircleLine,
-  RiErrorWarningLine,
-  RiInformationLine,
-} from '@remixicon/react';
 import cn from 'classnames';
 import { ReactNode, useMemo } from 'react';
+import {
+  BiCheckCircle,
+  BiExclamationCircle,
+  BiInfoCircle,
+  BiXCircle,
+} from 'react-bootstrap-icons-pro';
 import './Alert.css';
 
 export interface AlertProps {
@@ -17,13 +17,13 @@ export function Alert({ type = 'info', children }: AlertProps) {
   const icon: ReactNode = useMemo(() => {
     switch (type) {
       case 'error':
-        return <RiCloseCircleLine />;
+        return <BiXCircle />;
       case 'success':
-        return <RiCheckboxCircleLine />;
+        return <BiCheckCircle />;
       case 'warning':
-        return <RiErrorWarningLine />;
+        return <BiExclamationCircle />;
       default:
-        return <RiInformationLine />;
+        return <BiInfoCircle />;
     }
   }, [type]);
   return (
