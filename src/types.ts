@@ -15,3 +15,8 @@ export interface MDXDoc {
    */
   title?: string;
 }
+
+export interface DocLanguage {
+  code: string;
+  name: string;
+}
