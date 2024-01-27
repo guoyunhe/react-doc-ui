@@ -1,16 +1,20 @@
 # 变更日志
 
+## 2.2.0 - 2024-01-27
+
+- 增加了 i18n 支持
+
 ## 2.1.0 - 2024-01-27
 
-- Changed icons from `@remixicon/react` to `react-bootstrap-icons-pro`
+- 更改了图标库，淘汰 `@remixicon/react` 改用 `react-bootstrap-icons-pro`
 
 ## 2.0.0 - 2024-01-17
 
-- **BREAKING CHANGE**: removed all components and only export default `DocUI` component
+- **破坏性变更**: 移除所有组建，只导出默认 `DocUI` 组件
 
 ## 1.0.0 - 2023-03-11
 
-- Added components:
+- 增加了组件:
   - `<DocCodeBlock/>`
   - `<DocContainer/>`
   - `<DocDemoBlock/>`
@@ -18,5 +22,5 @@
   - `<DocHeading/>`
   - `<DocProvider/>`
   - `<DocTabCodeBlock/>`
-- Added hooks:
+- 增加了钩子:
   - `useDoc()`
