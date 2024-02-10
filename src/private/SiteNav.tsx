@@ -25,15 +25,30 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
     }
   }, [i18n.language, location.pathname, navigate]);
 
-  const docsFilteredByLang = docs.filter(
-    (doc) => getLang(doc.filepath) === i18n.language
-  );
-
+  const docsFilteredByLang = docs
+    .filter((doc) => getLang(doc.filepath) === i18n.language)
+    .map((doc) => ({
+      title: doc.title,
+      path: getRoutePath(doc.filepath),
+      group: doc.frontmatter?.group,
+      order: doc.frontmatter?.order,
+    }))
+    .sort((a, b) => {
+      if (typeof a.order === 'number' && typeof b.order === 'number') {
+        return a.order - b.order;
+      } else if (typeof a.order === 'number') {
+        return -1;
+      } else if (typeof b.order === 'number') {
+        return 1;
+      } else {
+        return a.path.localeCompare(b.path);
+      }
+    });
   const groups: string[] = [];
 
   docsFilteredByLang.forEach((doc) => {
-    if (doc.frontmatter?.group && !groups.includes(doc.frontmatter.group)) {
-      groups.push(doc.frontmatter.group);
+    if (doc.group && !groups.includes(doc.group)) {
+      groups.push(doc.group);
     }
   });
 
@@ -41,13 +56,7 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
     <aside className="doc-ui-site-nav">
       <nav className="doc-ui-site-nav-inner">
         {docsFilteredByLang
-          .filter((doc) => !doc.frontmatter?.group)
-          .map((doc) => ({
-            title: doc.title,
-            path: getRoutePath(doc.filepath),
-            group: doc.frontmatter?.group,
-          }))
-          .sort((a, b) => a.path.localeCompare(b.path))
+          .filter((doc) => !doc.group)
           .map((doc) => (
             <NavLink
               key={doc.path}
@@ -63,12 +72,7 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
           <div key={group} className="doc-ui-site-nav-group">
             <div className="doc-ui-site-nav-group-title">{group}</div>
             {docsFilteredByLang
-              .filter((doc) => group === doc.frontmatter?.group)
-              .map((doc) => ({
-                title: doc.title,
-                path: getRoutePath(doc.filepath),
-              }))
-              .sort((a, b) => a.path.localeCompare(b.path))
+              .filter((doc) => group === doc.group)
               .map((doc) => (
                 <NavLink
                   key={doc.path}
