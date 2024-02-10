@@ -11,7 +11,7 @@ export const components: Record<string, ComponentType> = {
     const codeElem = Children.only(children);
     const language = codeElem.props.className?.substring(9) || 'bash';
     const code = codeElem.props.children?.trim?.();
-    return ['jsx', 'tsx'].includes(language) ? (
+    return ['jsx', 'tsx'].includes(language) && !props.static ? (
       <DemoBlock language={language} code={code} {...props} />
     ) : (
       <CodeBlock language={language} code={code} {...props} />
