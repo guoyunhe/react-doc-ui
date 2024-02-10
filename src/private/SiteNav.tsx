@@ -55,6 +55,20 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
   return (
     <aside className="doc-ui-site-nav">
       <nav className="doc-ui-site-nav-inner">
+        <div className="doc-ui-site-settings">
+          {languages && (
+            <select
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+            >
+              {languages.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
         {docsFilteredByLang
           .filter((doc) => !doc.group)
           .map((doc) => (
@@ -85,18 +99,6 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
               ))}
           </div>
         ))}
-        {languages && (
-          <select
-            value={i18n.language}
-            onChange={(e) => i18n.changeLanguage(e.target.value)}
-          >
-            {languages.map((lang) => (
-              <option key={lang.code} value={lang.code}>
-                {lang.name}
-              </option>
-            ))}
-          </select>
-        )}
       </nav>
     </aside>
   );

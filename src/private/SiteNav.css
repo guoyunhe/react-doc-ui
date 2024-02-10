@@ -11,8 +11,12 @@
   overflow-y: auto;
 }
 
+.doc-ui-site-settings {
+  padding: 0.5rem 1rem;
+}
+
 .doc-ui-site-nav-group-title {
-  font-size: 0.8em;
+  font-size: 0.7rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
   opacity: 0.5;
@@ -20,6 +24,7 @@
 
 .doc-ui-site-nav-item {
   display: block;
+  font-size: 0.8rem;
   text-decoration: none;
   padding: 0.5rem 1rem;
   color: inherit;
