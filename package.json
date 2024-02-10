@@ -73,7 +73,7 @@
     "@tsconfig/vite-react": "^1.0.1",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
-    "gh-pages": "^5.0.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-doc-ui": "^2.2.1",
     "react-dom": "^18.2.0",
@@ -101,3 +101,4 @@
     "template": "react"
   }
 }
+
