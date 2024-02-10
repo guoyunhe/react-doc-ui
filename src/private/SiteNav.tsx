@@ -25,14 +25,27 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
     }
   }, [i18n.language, location.pathname, navigate]);
 
+  const docsFilteredByLang = docs.filter(
+    (doc) => getLang(doc.filepath) === i18n.language
+  );
+
+  const groups: string[] = [];
+
+  docsFilteredByLang.forEach((doc) => {
+    if (doc.frontmatter?.group && !groups.includes(doc.frontmatter.group)) {
+      groups.push(doc.frontmatter.group);
+    }
+  });
+
   return (
     <aside className="doc-ui-site-nav">
       <nav className="doc-ui-site-nav-inner">
-        {docs
-          .filter((doc) => getLang(doc.filepath) === i18n.language)
+        {docsFilteredByLang
+          .filter((doc) => !doc.frontmatter?.group)
           .map((doc) => ({
             title: doc.title,
             path: getRoutePath(doc.filepath),
+            group: doc.frontmatter?.group,
           }))
           .sort((a, b) => a.path.localeCompare(b.path))
           .map((doc) => (
@@ -45,6 +58,29 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
               {doc.title}
             </NavLink>
           ))}
+
+        {groups.map((group) => (
+          <div key={group} className="doc-ui-site-nav-group">
+            <div className="doc-ui-site-nav-group-title">{group}</div>
+            {docsFilteredByLang
+              .filter((doc) => group === doc.frontmatter?.group)
+              .map((doc) => ({
+                title: doc.title,
+                path: getRoutePath(doc.filepath),
+              }))
+              .sort((a, b) => a.path.localeCompare(b.path))
+              .map((doc) => (
+                <NavLink
+                  key={doc.path}
+                  className="doc-ui-site-nav-item"
+                  to={getRoutePath(doc.path)}
+                  end
+                >
+                  {doc.title}
+                </NavLink>
+              ))}
+          </div>
+        ))}
         {languages && (
           <select
             value={i18n.language}
