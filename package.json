@@ -1,6 +1,6 @@
 {
   "name": "react-doc-ui",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "React Document UI",
   "keywords": [
     "react",
@@ -101,4 +101,3 @@
     "template": "react"
   }
 }
-
