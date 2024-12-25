@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0 - 2024-12-25
+
+- Changed react-router to wouter
+
 ## 2.2.0 - 2024-01-27
 
 - Added i18n support
