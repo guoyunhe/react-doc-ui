@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'wouter';
 import { DocLanguage, MDXDoc } from '../types';
 import './SiteNav.css';
 import { getLang } from './getLang';
@@ -14,16 +14,15 @@ export interface SiteNavProps {
 }
 
 export function SiteNav({ docs, languages }: SiteNavProps) {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [location, navigate] = useLocation();
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const newPath = setLang(location.pathname, i18n.language);
-    if (newPath !== location.pathname) {
+    const newPath = setLang(location, i18n.language);
+    if (newPath !== location) {
       navigate(newPath);
     }
-  }, [i18n.language, location.pathname, navigate]);
+  }, [i18n.language, location, navigate]);
 
   const docsFilteredByLang = docs
     .filter((doc) => getLang(doc.filepath) === i18n.language)
@@ -72,14 +71,15 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
         {docsFilteredByLang
           .filter((doc) => !doc.group)
           .map((doc) => (
-            <NavLink
+            <Link
               key={doc.path}
-              className="doc-ui-site-nav-item"
+              className={(active) =>
+                active ? 'doc-ui-site-nav-item active' : 'doc-ui-site-nav-item'
+              }
               to={getRoutePath(doc.path)}
-              end
             >
               {doc.title}
-            </NavLink>
+            </Link>
           ))}
 
         {groups.map((group) => (
@@ -88,14 +88,17 @@ export function SiteNav({ docs, languages }: SiteNavProps) {
             {docsFilteredByLang
               .filter((doc) => group === doc.group)
               .map((doc) => (
-                <NavLink
+                <Link
                   key={doc.path}
-                  className="doc-ui-site-nav-item"
+                  className={(active) =>
+                    active
+                      ? 'doc-ui-site-nav-item active'
+                      : 'doc-ui-site-nav-item'
+                  }
                   to={getRoutePath(doc.path)}
-                  end
                 >
                   {doc.title}
-                </NavLink>
+                </Link>
               ))}
           </div>
         ))}

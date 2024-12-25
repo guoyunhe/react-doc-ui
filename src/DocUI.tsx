@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createInstance } from 'i18next';
 import { CSSProperties, useMemo } from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Router, Switch } from 'wouter';
 import './DocUI.css';
 import { SiteNav } from './private/SiteNav';
 import { components } from './private/components';
@@ -48,6 +48,7 @@ export function DocUI({
   className,
   style,
 }: DocUIProps) {
+  console.log(docs);
   const i18n = useMemo(() => {
     const i18n = createInstance({
       fallbackLng: 'en',
@@ -78,27 +79,26 @@ export function DocUI({
 
   return (
     <I18nextProvider i18n={i18n}>
-      <BrowserRouter basename={basename}>
-        <div className={cn('doc-ui', className)} style={style}>
+      <div className={cn('doc-ui', className)} style={style}>
+        <Router base={basename.replace(/\/+$/, '')}>
           <SiteNav languages={languages} docs={docs} />
           <main className="doc-ui-main">
             <article className="doc-ui-content">
               <MDXProvider components={components}>
-                <Routes>
+                <Switch>
                   {docs.map((doc) => (
                     <Route
-                      index={doc.filepath === 'README.md'}
                       key={doc.filepath}
                       path={getRoutePath(doc.filepath)}
-                      Component={doc.default}
+                      component={doc.default as any}
                     />
                   ))}
-                </Routes>
+                </Switch>
               </MDXProvider>
             </article>
           </main>
-        </div>
-      </BrowserRouter>
+        </Router>
+      </div>
     </I18nextProvider>
   );
 }
