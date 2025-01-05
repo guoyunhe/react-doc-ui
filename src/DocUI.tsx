@@ -61,12 +61,20 @@ export function DocUI({
       resources: {
         en: {
           translation: {
-            hello: 'Hello from other i18n instance',
+            copy: 'Copy',
+            success: 'Success',
+            phone: 'Phone',
+            tablet: 'Tablet',
+            laptop: 'Laptop',
           },
         },
-        de: {
+        zh: {
           translation: {
-            hello: 'Hallo aus einer anderen i18n Instanz',
+            copy: '复制',
+            success: '成功',
+            phone: '手机',
+            tablet: '平板电脑',
+            laptop: '笔记本',
           },
         },
       },

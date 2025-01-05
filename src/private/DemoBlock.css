@@ -47,13 +47,13 @@
   padding: 8px 10px;
 }
 
-.doc-ui-demo-block-mobile .doc-ui-demo-block-main,
+.doc-ui-demo-block-phone .doc-ui-demo-block-main,
 .doc-ui-demo-block-tablet .doc-ui-demo-block-main {
   display: flex;
   flex-wrap: wrap;
 }
 
-.doc-ui-demo-block-mobile .doc-ui-demo-block-preview {
+.doc-ui-demo-block-phone .doc-ui-demo-block-preview {
   flex: 0 1 360px;
 }
 

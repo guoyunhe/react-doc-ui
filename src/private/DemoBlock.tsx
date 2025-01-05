@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { CSSProperties, useMemo, useState } from 'react';
 import { BiLaptop, BiPhone, BiTablet } from 'react-bootstrap-icons-pro';
+import { useTranslation } from 'react-i18next';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import { CopyButton } from './CopyButton';
 import './DemoBlock.css';
@@ -12,7 +13,7 @@ import { ToolSelect } from './ToolSelect';
 import { transformCode } from './transformCode';
 
 export interface DemoBlockProps {
-  device?: 'laptop' | 'tablet' | 'mobile' | 'responsive';
+  device?: 'laptop' | 'tablet' | 'phone' | 'responsive';
   language?: 'jsx' | 'tsx';
   filename?: string | undefined;
   code: string;
@@ -32,13 +33,14 @@ export function DemoBlock({
   style,
   imports,
 }: DemoBlockProps) {
+  const { t } = useTranslation();
   const deviceList = useMemo(
     () => [
-      { value: 'mobile', label: 'Mobile', icon: <BiPhone /> },
-      { value: 'tablet', label: 'Tablet', icon: <BiTablet /> },
-      { value: 'laptop', label: 'Laptop', icon: <BiLaptop /> },
+      { value: 'phone', label: t('phone'), icon: <BiPhone /> },
+      { value: 'tablet', label: t('tablet'), icon: <BiTablet /> },
+      { value: 'laptop', label: t('laptop'), icon: <BiLaptop /> },
     ],
-    [],
+    [t],
   );
 
   const [selectedDevice, setSelectedDevice] = useState<string>(

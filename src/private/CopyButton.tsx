@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { BiCopy } from 'react-bootstrap-icons-pro';
+import { useTranslation } from 'react-i18next';
 import { SuccessButton } from './SuccessButton';
 import { ToolButton } from './ToolButton';
 
 export interface CopyButtonProps {
   code?: string | undefined;
-  locale?: Record<string, string>;
 }
 
-export function CopyButton({ code, locale }: CopyButtonProps) {
+export function CopyButton({ code }: CopyButtonProps) {
+  const { t } = useTranslation();
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export function CopyButton({ code, locale }: CopyButtonProps) {
   }, [success]);
 
   if (success) {
-    return <SuccessButton locale={locale} />;
+    return <SuccessButton />;
   }
 
   return (
@@ -39,7 +40,7 @@ export function CopyButton({ code, locale }: CopyButtonProps) {
       }}
     >
       <BiCopy />
-      {locale?.['copy'] || 'Copy'}
+      {t('copy')}
     </ToolButton>
   );
 }
