@@ -2,6 +2,7 @@ import '@guoyunhe/prism-theme-github/github-light.css';
 import { MDXProvider } from '@mdx-js/react';
 import cn from 'classnames';
 import { createInstance } from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { CSSProperties, useMemo } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { Route, Router, Switch } from 'wouter';
@@ -10,7 +11,6 @@ import { SiteNav } from './private/SiteNav';
 import { components } from './private/components';
 import { getRoutePath } from './private/getRoutePath';
 import { DocLanguage, MDXDoc } from './types';
-
 export interface DocUIProps {
   /**
    * Imported Markdown/MDX files. For example:
@@ -48,7 +48,6 @@ export function DocUI({
   className,
   style,
 }: DocUIProps) {
-  console.log(docs);
   const i18n = useMemo(() => {
     const i18n = createInstance({
       fallbackLng: 'en',
@@ -72,7 +71,7 @@ export function DocUI({
         },
       },
     });
-
+    i18n.use(LanguageDetector);
     i18n.init();
     return i18n;
   }, [languages]);
