@@ -51,7 +51,7 @@ export function DocUI({
   const i18n = useMemo(() => {
     const i18n = createInstance({
       fallbackLng: 'en',
-      supportedLngs: languages?.map((lang) => lang.code),
+      supportedLngs: languages?.map((lang) => lang.code) || ['en'],
       debug: true,
 
       interpolation: {
