@@ -1,18 +1,23 @@
-const langRegex = /^\/([a-z]{2})\//;
+const langRegex = /^\/([a-z]{2}(-[A-Z]{2})?)\//;
 
 export function setLang(path: string, lang: string) {
-  const langMatch = path.match(langRegex);
+  let newPath = path;
+  if (!newPath.endsWith('/')) {
+    newPath += '/';
+  }
+
+  const langMatch = newPath.match(langRegex);
   if (langMatch) {
     if (lang === 'en') {
-      return path.replace(langRegex, '/');
+      return newPath.replace(langRegex, '/');
     } else {
-      return path.replace(langRegex, '/' + lang + '/');
+      return newPath.replace(langRegex, '/' + lang + '/');
     }
   } else {
     if (lang === 'en') {
-      return path;
+      return newPath;
     } else {
-      return '/' + lang + path;
+      return '/' + lang + newPath;
     }
   }
 }
