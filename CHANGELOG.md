@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.0 - 2025-05-30
+
+- Added localStorage prefix to avoid conflicts of multiple apps
+
 ## 2.3.0 - 2024-12-25
 
 - Changed react-router to wouter
