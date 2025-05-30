@@ -41,16 +41,13 @@ export interface DocUIProps {
   style?: CSSProperties;
 }
 
-export function DocUI({
-  docs = [],
-  basename,
-  languages,
-  className,
-  style,
-}: DocUIProps) {
-  const trimedBasename = basename.endsWith('/') ? basename.substring(0, -1):basename;
+export function DocUI({ docs = [], basename, languages, className, style }: DocUIProps) {
+  const trimedBasename = basename?.endsWith('/')
+    ? basename.substring(0, basename.length - 1)
+    : basename;
+
   const i18n = useMemo(() => {
-    const i18n = createInstance({
+    const i18n_ = createInstance({
       fallbackLng: 'en',
       supportedLngs: languages?.map((lang) => lang.code) || ['en'],
 
@@ -80,13 +77,13 @@ export function DocUI({
       },
 
       detection: {
-        lookupLocalStorage: trimedBasename + '/locale',
+        lookupLocalStorage: `${trimedBasename}/locale`,
         caches: ['localStorage'],
-      }
+      },
     });
-    i18n.use(LanguageDetector);
-    i18n.init();
-    return i18n;
+    i18n_.use(LanguageDetector);
+    i18n_.init();
+    return i18n_;
   }, [languages, trimedBasename]);
 
   return (
