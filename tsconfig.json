@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "checkJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["rive/globals"],
+    "types": ["rive/globals", "vitest/globals"],
     "jsx": "react-jsx",
+    "noEmit": true,
+    "strict": true
   },
   "include": ["src"],
+  "exclude": [".rive", "build", "coverage", "dist", "node_modules"]
 }
