@@ -48,11 +48,11 @@ export function DocUI({
   className,
   style,
 }: DocUIProps) {
+  const trimedBasename = basename.endsWith('/') ? basename.substring(0, -1):basename;
   const i18n = useMemo(() => {
     const i18n = createInstance({
       fallbackLng: 'en',
       supportedLngs: languages?.map((lang) => lang.code) || ['en'],
-      debug: true,
 
       interpolation: {
         escapeValue: false, // not needed for react as it escapes by default
@@ -78,16 +78,21 @@ export function DocUI({
           },
         },
       },
+
+      detection: {
+        lookupLocalStorage: trimedBasename + '/locale',
+        caches: ['localStorage'],
+      }
     });
     i18n.use(LanguageDetector);
     i18n.init();
     return i18n;
-  }, [languages]);
+  }, [languages, trimedBasename]);
 
   return (
     <I18nextProvider i18n={i18n}>
       <div className={cn('doc-ui', className)} style={style}>
-        <Router base={basename.replace(/\/+$/, '')}>
+        <Router base={trimedBasename}>
           <SiteNav languages={languages} docs={docs} />
           <main className="doc-ui-main">
             <article className="doc-ui-content">
